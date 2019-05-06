@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Background from './Components/Background';
 import LinkButton from './UI/LinkButton';
@@ -7,12 +7,10 @@ import { useScreenSize } from './Hooks/useScreenSize';
 
 function App() {
   const screenWidth = useScreenSize();
-  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <div className="App">
-      {isLoading && <h1>Loading</h1>}
-      <Background setIsLoading={setIsLoading} />
+      <Background />
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <h1
           style={{

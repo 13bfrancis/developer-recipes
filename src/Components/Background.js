@@ -14,6 +14,4 @@ const Background = styled.img`
   z-index: -5;
 `;
 
-export default ({ setIsLoading }) => (
-  <Background onLoad={setIsLoading(false)} src={background} alt="Background" />
-);
+export default () => <Background src={background} alt="Background" />;
