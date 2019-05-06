@@ -1,24 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Background from './Components/Background';
+import LinkButton from './UI/LinkButton';
+
+import { useScreenSize } from './Hooks/useScreenSize';
 
 function App() {
+  const screenWidth = useScreenSize();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Background />
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <h1
+          style={{
+            flexGrow: 1,
+            marginLeft: '10px',
+            color: 'white',
+            width: '15rem',
+            fontFamily: "'Rubik Mono One'",
+            fontSize: '30px',
+            textShadow: '1px 1px 3px black'
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Developer <br /> Recipes <i className="fas fa-utensils" />
+        </h1>
+        {screenWidth > 650 ? (
+          <>
+            <LinkButton>Sign In</LinkButton>
+            <LinkButton>Sign Up</LinkButton>
+          </>
+        ) : (
+          <i
+            className="fas fa-bars"
+            style={{
+              color: 'white',
+              fontSize: '2.5rem',
+              marginRight: '1rem',
+              cursor: 'pointer'
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 }
